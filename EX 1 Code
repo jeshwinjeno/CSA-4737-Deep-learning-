@@ -1,0 +1,42 @@
+# Import required libraries
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, classification_report
+
+# =========================
+# 1. BINARY CLASSIFICATION
+# =========================
+print("----- BINARY CONFUSION MATRIX -----")
+
+# Actual and Predicted values (0 and 1)
+y_true_bin = [1, 0, 1, 1, 0, 1, 0, 0, 1, 0]
+y_pred_bin = [1, 0, 1, 0, 0, 1, 0, 1, 1, 0]
+
+# Confusion Matrix
+cm_bin = confusion_matrix(y_true_bin, y_pred_bin)
+print("Confusion Matrix:\n", cm_bin)
+
+# Metrics
+print("\nPerformance Metrics:")
+print("Accuracy:", accuracy_score(y_true_bin, y_pred_bin))
+print("Precision:", precision_score(y_true_bin, y_pred_bin))
+print("Recall:", recall_score(y_true_bin, y_pred_bin))
+print("F1 Score:", f1_score(y_true_bin, y_pred_bin))
+
+
+# =========================
+# 2. MULTICLASS CLASSIFICATION
+# =========================
+print("\n\n----- MULTICLASS CONFUSION MATRIX -----")
+
+# Actual and Predicted values (0,1,2)
+y_true_multi = [0, 1, 2, 1, 0, 2, 1, 0, 2, 1]
+y_pred_multi = [0, 2, 1, 1, 0, 2, 0, 0, 2, 1]
+
+# Confusion Matrix
+cm_multi = confusion_matrix(y_true_multi, y_pred_multi)
+print("Confusion Matrix:\n", cm_multi)
+
+# Accuracy
+print("\nAccuracy:", accuracy_score(y_true_multi, y_pred_multi))
+
+# Detailed Report
+print("\nClassification Report:\n", classification_report(y_true_multi, y_pred_multi))
